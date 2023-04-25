@@ -20,9 +20,7 @@ users = {
 
 
 class Config(object):
-    """
-    Configuration for Babel
-    """
+    """Babel Config"""
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
@@ -47,7 +45,7 @@ def get_user():
 @app.before_request
 def before_request():
     """
-    Add user to flask.g if user is found
+    add user to flask.g if user not found
     """
     user = get_user()
     g.user = user
@@ -56,7 +54,7 @@ def before_request():
 @babel.localeselector
 def get_locale():
     """
-    Select and return best language match based on supported languages
+    get selected and  supported languages
     """
     loc = request.args.get('locale')
     if loc in app.config['LANGUAGES']:
@@ -66,9 +64,7 @@ def get_locale():
 
 @app.route('/', strict_slashes=False)
 def index() -> str:
-    """
-    Handles / route
-    """
+    """ entry point"""
     return render_template('5-index.html')
 
 

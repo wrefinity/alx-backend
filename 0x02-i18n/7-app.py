@@ -19,9 +19,7 @@ from typing import (
 
 
 class Config(object):
-    """
-    Configuration for Babel
-    """
+    """Babel Config"""
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
@@ -101,9 +99,7 @@ def get_timezone():
 
 @app.route('/', strict_slashes=False)
 def index() -> str:
-    """
-    Handles / route
-    """
+    """ entry point"""
     return render_template('5-index.html')
 
 
